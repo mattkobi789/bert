@@ -232,7 +232,7 @@ def read_squad_examples(input_file, is_training):
   for i in range(0, len(json_data)):
     for j in range(0, len(json_data[i]["paragraphs"])):
         json_data[i]["paragraphs"][j]["qas"] = json_data[i]["paragraphs"][j]["qas"][0]
-   input_data = json_data
+  input_data = json_data
 
   def is_whitespace(c):
     if c == " " or c == "\t" or c == "\r" or c == "\n" or ord(c) == 0x202F:
