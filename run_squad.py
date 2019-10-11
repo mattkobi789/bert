@@ -229,10 +229,9 @@ def read_squad_examples(input_file, is_training):
   tf.logging.info("Trimming train-v2.0.json file\nOnly keeping first question/answer pair for each paragraph\n")
   with tf.gfile.Open(input_file, "r") as reader:
     json_data = json.load(reader)["data"]
-    for i in range(0, len(json_data)):
-      with json_data[i]["paragraphs"] as subjectList:
-        for j in range(0, len(subjectList)):
-          subjectList[j]["qas"] = subjectList[j]["qas"][0]
+        for i in range(0, len(json_data)):
+            for j in range(0, len(json_data[i]["paragraphs"])):
+                json_data[i]["paragraphs"][j]["qas"] = json_data[i]["paragraphs"][j]["qas"][0]
     input_data = json_data
 
   def is_whitespace(c):
