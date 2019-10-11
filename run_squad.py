@@ -231,7 +231,7 @@ def read_squad_examples(input_file, is_training):
     json_data = json.load(reader)["data"]
   for i in range(0, len(json_data)):
     for j in range(0, len(json_data[i]["paragraphs"])):
-        json_data[i]["paragraphs"][j]["qas"] = json_data[i]["paragraphs"][j]["qas"][0]
+        del json_data[i]["paragraphs"][j]["qas"][1:]
   input_data = json_data
 
   def is_whitespace(c):
